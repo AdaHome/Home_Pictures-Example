@@ -15,10 +15,11 @@ procedure Main is
       S : PNG_Surface;
    begin
       Ada.Text_IO.New_Line;
-      Open (F, In_File, "lena512.png");
+      Open (F, In_File, "lena10.png");
       Read (Stream (F), S);
       Close (F);
       Puts.Put_Lines (S);
+      Puts.Put_Image (S);
    end;
 
 begin
