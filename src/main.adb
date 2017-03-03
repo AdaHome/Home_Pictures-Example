@@ -1,8 +1,8 @@
 with Ada.Text_IO;
 with Ada.Integer_Text_IO;
 with Ada.Streams.Stream_IO;
-with Home_Pictures.PNG_Surfaces;
-with Home_Pictures.PNG_Surfaces.Puts;
+with Home_Pictures.PNG;
+with Home_Pictures.PNG.Puts;
 with System; use System;
 with Ada.Streams;
 
@@ -10,9 +10,9 @@ procedure Main is
 
    procedure Test2 is
       use Ada.Streams.Stream_IO;
-      use Home_Pictures.PNG_Surfaces;
+      use Home_Pictures.PNG;
       F : File_Type;
-      S : PNG_Surface;
+      S : PNG_Information;
    begin
       Ada.Text_IO.New_Line;
       Open (F, In_File, "lena10.png");
