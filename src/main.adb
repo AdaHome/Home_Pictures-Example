@@ -1,14 +1,16 @@
 with Ada.Text_IO;
 with Ada.Integer_Text_IO;
 with Ada.Streams.Stream_IO;
+with Ada.Streams;
+
+with System;
+
 with Home_Pictures.PNG;
 with Home_Pictures.PNG.Puts;
-with System; use System;
-with Ada.Streams;
 
 procedure Main is
 
-   procedure Test2 is
+   procedure Test is
       use Ada.Streams.Stream_IO;
       use Home_Pictures.PNG;
       F : File_Type;
@@ -24,6 +26,7 @@ procedure Main is
 
 begin
 
-   --Ada.Text_IO.Put_Line ("Stream_Element'Size " & Ada.Streams.Stream_Element'Size'Img);
-   Test2;
+   Home_Pictures.PNG.Puts.Put_Kinds;
+
+   Test;
 end;
