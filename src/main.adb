@@ -26,7 +26,7 @@ procedure Main is
 
 begin
 
-   Home_Pictures.PNG.Puts.Put_Kinds;
+   Home_Pictures.PNG.Puts.Put_Kind_Static_Expression;
 
    Test;
 end;
