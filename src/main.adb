@@ -10,6 +10,14 @@ with Home_Pictures.PNG.Puts;
 
 procedure Main is
 
+   procedure Put_Lines_PNG_Small_Chunk is
+      use Home_Pictures.PNG;
+      A : PNG_Small_Chunk_Vector;
+   begin
+      Read_Complete ("lena10.png", A);
+      Puts.Put_Lines (A);
+   end;
+
    procedure Test is
       use Ada.Streams.Stream_IO;
       use Home_Pictures.PNG;
@@ -25,8 +33,8 @@ procedure Main is
    end;
 
 begin
+   Put_Lines_PNG_Small_Chunk;
+   --Home_Pictures.PNG.Puts.Put_Kind_Static_Expression;
 
-   Home_Pictures.PNG.Puts.Put_Kind_Static_Expression;
-
-   Test;
+   --Test;
 end;
