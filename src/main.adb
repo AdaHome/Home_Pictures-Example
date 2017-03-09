@@ -29,11 +29,12 @@ procedure Main is
       Read (Stream (F), S);
       Close (F);
       Puts.Put_Lines (S);
-      Puts.Put_Image (S);
    end;
 
 begin
    Put_Lines_PNG_Small_Chunk;
+
+   Test;
    --Home_Pictures.PNG.Puts.Put_Kind_Static_Expression;
 
    --Test;
