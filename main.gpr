@@ -1,10 +1,13 @@
 with "../Home_Pictures/home_pictures";
+with "../Home_zlib/home_zlib";
 
 project Main is
 
    for Languages use ("ada");
    for Source_Dirs use ("src");
-   for Main use ("main.adb", "main_ztest.adb");
+   --for Main use ("main.adb", "main_ztest.adb", "main_dev.adb");
+   --for Main use ("main_test.adb");
+   for Main use ("main_dev.adb");
    for Object_Dir use "obj";
    for Library_Dir use "lib";
    for Exec_Dir use "bin";
@@ -28,7 +31,16 @@ project Main is
 
    package Compiler is
       --for Default_Switches ("ada") use ("-gnata", "-gnatwa", "-gnatf");
-      for Default_Switches ("ada") use ("-gnata");
+      --for Default_Switches ("ada") use ("-gnata", "-gnateE");
+      for Default_Switches ("ada") use ("-fstack-check", --  Generate stack checking code (part of Ada)
+           "-gnata",        --  Enable assertions            (part of Ada)
+           "-gnato13",      --  Overflow checking            (part of Ada)
+           "-gnatf",                      --  Full, verbose error messages
+           "-gnatwa",                     --  All optional warnings
+           "-gnatVa",                     --  All validity checks
+           "-gnat2012",                   --  Use Ada 2012
+           "-Wall",                       --  All GCC warnings
+           "-O2");                        --  Optimise (level 2/3)
    end Compiler;
 
 end Main;
