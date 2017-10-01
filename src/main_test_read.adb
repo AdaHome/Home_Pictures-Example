@@ -18,7 +18,7 @@ procedure Main_Test_Read is
       Buffer : Stream_Element_Array (1 .. 1000);
       Last : Stream_Element_Offset;
    begin
-      Initialize (Reader_Context, "lena3x10.png");
+      Initialize (Reader_Context, "lena3x10.png", Buffer, Last);
 
       declare
          Pixel_Byte_Depth : constant PNG_Pixel_Byte_Depth := Find_Pixel_Byte_Depth (Reader_Context.Header.Data_IHDR.Color_Kind, Reader_Context.Header.Data_IHDR.Bit_Depth);
@@ -27,10 +27,6 @@ procedure Main_Test_Read is
          Pixmap : D.Row_Array;
          K : Character;
       begin
-         loop
-            Read (Reader_Context, Buffer, Last);
-            exit when Reader_Context.Kind = PNG_Chunk_Kind_IDAT;
-         end loop;
 
          D.Initialize (Decoder_Context, Buffer (Buffer'First .. Last));
 
@@ -49,6 +45,7 @@ procedure Main_Test_Read is
             end loop;
             New_Line (3);
          end loop;
+
       end;
    end;
 
